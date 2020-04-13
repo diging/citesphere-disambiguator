@@ -8,11 +8,13 @@
   
   <properties>
         <org.slf4j-version>1.7.26</org.slf4j-version>
-        <org.springframework-version>5.1.7.RELEASE</org.springframework-version>
-        <spring-security-version>5.1.5.RELEASE</spring-security-version>
+        <org.springframework-version>5.2.5.RELEASE</org.springframework-version>
+        <spring-security-version>5.3.1.RELEASE</spring-security-version>
         <spring-data.version>Lovelace-RELEASE</spring-data.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
         <spring.kafka.version>2.4.5.RELEASE</spring.kafka.version>
+        <citesphere.zotero.version>0.1-SNAPSHOT</citesphere.zotero.version>
+        <spring-social-zotero.version>0.4</spring-social-zotero.version>
         
         <admin.password>$2a$04$oQo44vqcDIFRoYKiAXoNheurzkwX9dcNmowvTX/hsWuBMwijqn44i</admin.password>
         
@@ -21,6 +23,9 @@
         <db.user>cite</db.user>
         <db.password>cite</db.password>
 
+        <zotero.client.key></zotero.client.key>
+        <zotero.client.secret></zotero.client.secret>
+        
         <log.level>info</log.level>
         
         <kafka.hosts>localhost:9092</kafka.hosts>
@@ -51,6 +56,23 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Citesphere -->
+        <dependency>
+            <groupId>edu.asu.diging</groupId>
+            <artifactId>citesphere-zotero</artifactId>
+            <version>${citesphere.zotero.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.asu.diging</groupId>
+            <artifactId>spring-social-zotero</artifactId>
+            <version>${spring-social-zotero.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.asu.diging</groupId>
+            <artifactId>simple-users</artifactId>
+            <version>1.0</version>
+        </dependency>
+        
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -115,11 +137,6 @@
             <version>1.8.9</version>
         </dependency>
 
-        <dependency>
-            <groupId>edu.asu.diging</groupId>
-            <artifactId>simple-users</artifactId>
-            <version>0.5</version>
-        </dependency>
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -223,7 +240,6 @@
             <artifactId>spring-kafka</artifactId>
             <version>${spring.kafka.version}</version>
         </dependency>
-        
     </dependencies>
 
     <build>
